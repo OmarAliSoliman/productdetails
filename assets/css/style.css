@@ -1,0 +1,299 @@
+/* Constant styles  */
+@font-face {
+  font-family: monsb;
+  src: url("../fonts/Montserrat-Arabic-Bold.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: monsl;
+  src: url("../fonts/Montserrat-Arabic-Light.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: monsm;
+  src: url("../fonts/Montserrat-Arabic-Medium.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: monsr;
+  src: url("../fonts/Montserrat-Arabic-Regular.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: monss;
+  src: url("../fonts/Montserrat-Arabic-SemiBold.ttf");
+  font-display: swap;
+}
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: 16px;
+  transition: all 0.4s ease-in;
+  font-family: monsr;
+  direction: rtl;
+}
+
+body {
+  font-family: monsr;
+  line-height: normal !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 0 !important;
+}
+
+.clear {
+  clear: both;
+}
+
+img {
+  max-width: 100%;
+}
+
+a,
+button {
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* // Constant Styles */
+ul {
+  margin-bottom: 0;
+}
+
+.form-control {
+  border-radius: 7px;
+  background-color: rgba(245, 247, 250, 0.386);
+}
+.form-control:focus {
+  outline: 0 !important;
+  box-shadow: none !important;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+p {
+  font-size: 1.1rem;
+  color: #000;
+}
+
+/* Main Style */
+.btn-style {
+  background-color: #000000;
+  padding: 21px 35px;
+  color: #fff;
+  font-size: 1.1rem;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #000000;
+  border-radius: 42px;
+}
+.btn-style:hover {
+  color: #000000;
+  background-color: #fff;
+  border-color: #fff;
+  border-color: #000000;
+}
+
+.btn-style-rounded {
+  background-color: #000000;
+  padding: 18px 47px;
+  color: #fff;
+  font-size: 1.1rem;
+  display: inline-block;
+  border-radius: 35px;
+  text-align: center;
+  border: 1px solid #000000;
+}
+.btn-style-rounded:hover {
+  color: #000000;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.card-img {
+  height: 100vh;
+  position: relative;
+}
+.card-img .img-parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.card-img .img-parent img,
+.card-img .img-parent video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+input[type=number],
+input[type=email] {
+  text-align: right;
+}
+
+/* ================================================================ */
+.top_header {
+  background-color: #000000;
+  padding: 45px 0;
+}
+.top_header .nice-select {
+  float: none;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: transparent;
+  border: 0;
+  color: #fff;
+}
+.top_header .nice-select .option {
+  color: #000;
+}
+.top_header .lang {
+  justify-content: flex-end;
+}
+.top_header .lang span {
+  color: #fff;
+  font-size: 1rem;
+}
+
+/* ================================================================ */
+.product_details_content {
+  padding: 90px 0;
+}
+.product_details_content .small_images .thubm_img {
+  margin-bottom: 30px;
+}
+.product_details_content .small_images .thubm_img .card-img {
+  width: 90px;
+  height: 112px;
+}
+.product_details_content .big_imag {
+  margin-right: 30px;
+  width: 100%;
+}
+.product_details_content .big_imag .card-img {
+  width: 100%;
+  height: 679px;
+}
+.product_details_content .product_info_details h5 {
+  font-size: 1.6rem;
+  font-family: monsm;
+  line-height: 35px;
+}
+.product_details_content .order_form {
+  margin-top: 50px;
+}
+.product_details_content .order_form .sizes h5 {
+  margin-bottom: 20px;
+}
+.product_details_content .order_form .colors {
+  margin-top: 50px;
+}
+.product_details_content .order_form .colors h6 {
+  margin-bottom: 20px;
+}
+.product_details_content .order_form .colors label {
+  cursor: pointer;
+  position: relative;
+}
+.product_details_content .order_form .colors label input {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+.product_details_content .order_form .colors label .color_card {
+  width: 70px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #E3E4E4;
+  border-radius: 5px;
+}
+.product_details_content .order_form .colors label .color_card .card-img {
+  width: 90%;
+  height: 90%;
+  border-radius: 5px;
+  background-color: transparent;
+}
+.product_details_content .order_form .colors label input[type=radio]:checked ~ .color_card {
+  background-color: #000000;
+}
+.product_details_content .order_form .form-group {
+  display: inline-flex;
+  margin-left: 10px;
+}
+.product_details_content .order_form .form-group label {
+  cursor: pointer;
+  position: relative;
+}
+.product_details_content .order_form .form-group label input {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+.product_details_content .order_form .form-group label .box-style {
+  background-color: #F0F1F1;
+  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product_details_content .order_form .form-group input[type=radio]:checked ~ .box-style {
+  background-color: #000000;
+  color: #fff;
+}
+
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
+/* Shared styles  *//*# sourceMappingURL=style.css.map */

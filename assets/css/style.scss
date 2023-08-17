@@ -1,0 +1,439 @@
+/* Constant styles  */
+$mainColor: #000000;
+// $thirdColor: #252C30;
+
+@font-face {
+  font-family: monsb;
+  src: url("../fonts/Montserrat-Arabic-Bold.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: monsl;
+  src: url("../fonts/Montserrat-Arabic-Light.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: monsm;
+  src: url("../fonts/Montserrat-Arabic-Medium.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: monsr;
+  src: url("../fonts/Montserrat-Arabic-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: monss;
+  src: url("../fonts/Montserrat-Arabic-SemiBold.ttf");
+  font-display: swap;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+  font-family: monsr;
+  direction: rtl;
+}
+
+body {
+  font-family: monsr;
+  line-height: normal !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 0 !important;
+}
+
+.clear {
+  clear: both;
+}
+
+img {
+  max-width: 100%;
+}
+
+a,
+button {
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* // Constant Styles */
+
+ul {
+  margin-bottom: 0;
+}
+
+.form-control {
+  border-radius: 7px;
+  background-color: rgba(245, 247, 250, 0.386);
+
+  &:focus {
+    outline: 0 !important;
+    box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+p {
+  font-size: 1.1rem;
+  color: #000;
+}
+
+/* Main Style */
+
+.btn-style {
+  background-color: $mainColor;
+  padding: 21px 35px;
+  color: #fff;
+  font-size: 1.1rem;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid $mainColor;
+  border-radius: 42px;
+
+  &:hover {
+    color: $mainColor;
+    background-color: #fff;
+    border-color: #fff;
+    border-color: $mainColor;
+  }
+}
+
+.btn-style-rounded {
+  background-color: $mainColor;
+  padding: 18px 47px;
+  color: #fff;
+  font-size: 1.1rem;
+  display: inline-block;
+  border-radius: 35px;
+  text-align: center;
+  border: 1px solid $mainColor;
+
+  &:hover {
+    color: $mainColor;
+    background-color: #fff;
+    border-color: #fff;
+  }
+}
+
+.card-img {
+  height: 100vh;
+  position: relative;
+
+  .img-parent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    img,
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+input[type="number"],
+input[type="email"] {
+  text-align: right;
+}
+
+
+/* ================================================================ */
+.top_header {
+  background-color: $mainColor;
+  padding: 45px 0;
+
+  .nice-select {
+    float: none;
+    width: fit-content;
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+
+    .option {
+      color: #000;
+    }
+  }
+
+  .lang {
+    justify-content: flex-end;
+
+    span {
+      color: #fff;
+      font-size: 1rem;
+    }
+  }
+}
+
+
+/* ================================================================ */
+.product_details_content {
+  padding: 90px 0;
+
+  .small_images {
+    .thubm_img {
+      margin-bottom: 30px;
+
+      .card-img {
+        width: 90px;
+        height: 112px;
+      }
+    }
+  }
+
+  .big_imag {
+    margin-right: 30px;
+    width: 100%;
+    .card-img {
+      width: 100%;
+      height: 679px;
+    }
+  }
+
+  .product_info_details {
+    h5 {
+      font-size: 1.6rem;
+      font-family: monsm;
+      line-height: 35px;
+    }
+  }
+
+  .order_form {
+    margin-top: 50px;
+    .sizes{
+      h5{
+        margin-bottom: 20px;
+      }
+    }
+    .colors{
+      margin-top: 50px;
+      h6{
+        margin-bottom: 20px;
+      }
+      label{
+        cursor: pointer;
+        position: relative;
+        input{
+          position: absolute;
+          opacity: 0;
+          visibility: hidden;
+        }
+        .color_card{
+          width: 70px;
+          height: 90px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid #E3E4E4;
+          border-radius: 5px;
+
+          .card-img{
+            width: 90%;
+            height: 90%;
+            border-radius: 5px;
+            background-color: transparent;
+          }
+        }
+        input[type="radio"]:checked ~ .color_card{
+          background-color: $mainColor;
+        }
+      }
+    }
+    .form-group{
+      display: inline-flex;
+      margin-left: 10px;
+      label{
+        cursor: pointer;
+        position: relative;
+        input{
+          position: absolute;
+          opacity: 0;
+          visibility: hidden;
+        }
+        .box-style{
+          background-color:#F0F1F1;
+          border-radius: 5px;
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      input[type="radio"]:checked ~ .box-style{
+        background-color: $mainColor;
+        color: #fff;
+      }
+
+    }
+  }
+
+}
+
+/* ================================================================ */
+
+
+/* ================================================================ */
+
+
+/* ================================================================ */
+
+
+/* ================================================================ */
+
+
+/* ================================================================ */
+
+
+
+/* ================================================================ */
+
+
+/* ================================================================ */
+
+/* ================================================================ */
+
+
+/* ================================================================ */
+
+
+/* ================================================================ */
+
+/* ================================================================ */
+
+
+/* ================================================================ */
+
+/* ================================================================ */
+
+/* ================================================================ */
+
+/* ================================================================ */
+
+/* ================================================================ */
+
+/* ================================================================ */
+
+/* ================================================================ */
+
+/* ================================================================ */
+
+/* ================================================================ */
+
+/* ================================================================ */
+
+/* ================================================================ */
+
+/* ================================================================ */
+
+/* ================================================================ */
+
+/* ================================================================ */
+
+
+
+
+
+
+/* ================================================================ */
+
+/* Shared styles  */
+%backgroundImage {
+  background-position: center;
+  background-size: cover;
+}
+
+%inilizeFonrtAwsome_Before_After {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+%transition {
+  transition: all 0.3s ease-in-out;
+}
+
+%imglikebg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+%overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+%imgParent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+%flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%spcfies-number-of-line {
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+%btnColor {
+  padding: 10px 40px;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  border-radius: 5px;
+  color: #fff;
+  font-family: jannab;
+}
