@@ -490,6 +490,156 @@ input[type="email"] {
     }
   }
 
+  .befun{
+    h5{
+      font-size: 2rem;
+      line-height: 50px;
+    }
+  }
+
+  .related_products{
+    margin-top: 120px;
+
+  }
+
+  .related_card{
+    border: 1px solid #E3E4E4;
+    border-radius: 10px;
+    padding: 23px;
+    background-color: #F6F8FA;
+    display: block;
+    margin-bottom: 50px;
+    .card-img{
+      width: 100%;
+      height: 285px;
+      border-radius: 10px;
+      img{
+        border-radius: 10px;
+      }
+    }
+    .card_body{
+      text-align: center;
+      padding-top: 11px;
+      .card_title{
+        font-size: 1.2rem;
+        font-family: monsm;
+        margin: 0;
+        color: #000000;
+      }
+      .card_slag{
+        color: rgba(#000000, .5);
+        font-size: .8rem;
+        margin: 0;
+        margin: 5px 0;
+      }
+      .card_size{
+        margin: 0;
+        font-size: .9rem;
+        color: #000000;
+      }
+      .card_text{
+        margin: 0;
+        font-size: .9rem;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .product_summery{
+    padding: 9px;
+    border-radius: 10px;
+    border: 1px solid #E3E4E4;
+    .price{
+      background-color: rgba(255, 231, 190, 0.65);
+      border-radius: 5px;
+      padding: 21px;
+      span{
+        color: rgba(#01001F, .7);
+        font-size: 1rem;
+        font-family: monsl;
+        margin-bottom: 5px;
+        display: block;
+      }
+      h5{
+        text-align: right;
+        font-size: 2.2rem;
+        direction: ltr;
+        font-family: monss;
+      }
+      .old_price{
+        color: #A2814A;
+        font-size: 1.4rem;
+        position: relative;
+        width: fit-content;
+        direction: ltr;
+        text-align: right;
+        &::after{
+          content: "";
+          position:absolute;
+          top: 50%;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: #A2814A;
+        }
+      }
+    }
+
+    .shipping_info{
+      margin-top: 5px;
+      padding: 20px;
+      h5{
+        font-size: 1rem;
+        color: rgba(#01001F, .7);
+        font-family: monsl;
+        margin-bottom: 16px;
+      }
+      ul{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        // .line{
+        //   width: 100%;
+        //   border: 1px dotted #A2814A;
+        // }
+      }
+    }
+
+    .free_shipping{
+      margin-top: 20px;
+      h6{
+        color: #E30A17;
+        font-size: rem;
+        margin-bottom: 10px;
+      }
+      .date{
+        font-family: monsm;
+      }
+    }
+    .whats_order{
+      margin-top: 70px;
+      a{
+        background-color: #3EBF3E;
+        border-radius: 5px;
+        padding: 21px;
+        text-align: center;
+        width: 100%;
+        display: block;
+        color: #fff;
+        border: 1px solid #3EBF3E;
+        span{
+          margin-right: 10px;
+        }
+        &:hover{
+          background-color: #3ebf3ed2;
+          border: 1px solid #3ebf3ed2;
+
+        }
+      }
+    }
+  }
+  
+
 }
 
 /* ================================================================ */
