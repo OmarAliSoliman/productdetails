@@ -235,7 +235,7 @@ input[type="email"] {
   .order_form {
     margin-top: 50px;
     .sizes{
-      h5{
+      h6{
         margin-bottom: 20px;
       }
     }
@@ -273,6 +273,33 @@ input[type="email"] {
         }
       }
     }
+    .peaces_number{
+      margin-top: 60px;
+      .peaces_number_input{
+        width: fit-content;
+        flex : none;
+      }
+      li{
+        flex: none;
+      }
+      input{
+        font-size: 2rem;
+        width: 50px;
+        font-family: monsm;
+        border: 0;
+        background-color: transparent;
+        text-align: center;        
+      }
+    }
+    .box-style{
+      background-color:#F0F1F1;
+      border-radius: 5px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .form-group{
       display: inline-flex;
       margin-left: 10px;
@@ -284,21 +311,182 @@ input[type="email"] {
           opacity: 0;
           visibility: hidden;
         }
-        .box-style{
-          background-color:#F0F1F1;
-          border-radius: 5px;
-          width: 60px;
-          height: 60px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
       }
       input[type="radio"]:checked ~ .box-style{
         background-color: $mainColor;
         color: #fff;
       }
 
+    }
+
+    .btn_submit{
+      .btn{
+        background-color:#222429;
+        border-radius: 5px;
+        text-align: center;
+        padding: 19px 45px;
+        margin-right: 15px;
+        height: 60px;
+        color: #fff;
+        &:hover{
+          background-color: #fff;
+          color: #222429;
+        }
+      }
+    }
+  }
+
+  .product_form{
+    border: 1px solid #E3E4E4;
+    border-radius: 10px;
+    padding: 25px 30px;
+    margin-top: 30px;
+    h5{
+      color: rgba(0,0,0,0.7);
+      margin-bottom: 22px;
+    }
+    .nice-select{
+      float: none;
+      text-align: right !important;
+      line-height: 65px;
+      padding: 0.375rem 0.75rem;
+      .option{
+        text-align: right;
+      }
+      .list{
+        width: 100%;
+      }
+      &::after{
+        left: 10px;
+        right: unset;
+      }
+    }
+    .form-control, .nice-select{
+      height: 75px;
+      background-color: #F6F8FA;
+      border-radius: 5px;
+      border: 1px solid #F6F8FA;
+      font-family: monsl;
+      font-size: 1rem;
+    }
+    .form-group{
+      margin-bottom: 30px;
+    }
+    .btn_submit{
+      .btn{
+        width: 100%;
+        background-color:#222429;
+        border-radius: 5px;
+        text-align: center;
+        padding: 19px 45px;
+        height: 60px;
+        color: #fff;
+        &:hover{
+          background-color: #fff;
+          color: #222429;
+        }
+      }
+    }
+  }
+
+  .features{
+    margin-top: 50px;
+  }
+  .feature_card{
+    width: 150px;
+    text-align: center;
+    margin: auto;
+    .card-icon{
+      width: 88px;
+      margin: auto;
+      height: 88px;
+      border-radius: 50%;
+      border: 1px solid rgba(21, 21, 21, 0.307);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    h5{
+      font-size: .9rem;
+      margin-top: 17px;
+      color: rgba(#01001F, .7);
+    }
+
+  }
+
+  .product_aspex{
+    margin-top: 50px;
+    h6{
+      margin-bottom: 25px;
+      font-family: monsm;
+
+    }
+    li{
+      margin-bottom: 13px;
+      p, h6{
+        margin: 0;
+      }
+      p{
+        width: 150px;
+        color: rgba(1, 0, 31, 0.7);
+      }
+      h6{
+        font-family: monsl;
+      }
+    }
+  }
+
+  .product_video{
+    margin-top: 80px;
+    .card-img{
+      height: 456px;
+      position: relative;
+     &::after{
+      content: "";
+      @extend %overlay;
+      background-color: rgba(0,0,0,0.7);
+     }
+      
+    }
+  }
+
+  .product_descripe{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    p{
+      font-family: monsl;
+      line-height: 30px;
+      color: rgba(0,0,0,0.7);
+    }
+  }
+
+  .product_wash{
+    h6{
+      margin-bottom: 25px;
+      font-family: monsm;
+    }
+  }
+  .wash_card{
+    border-radius: 10px;
+    background-color: rgba(102, 177, 253, 0.34);
+    width: 330px;
+    padding: 22px 18px;
+    min-height: 190px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    p{
+      font-family: monsl;
+      margin-top: 10px;
+      line-height: 30px;
+    }
+    &.wash_card2{
+      background-color: rgba(#FFE7BE, .65);
+    }
+    &.wash_card3{
+      background-color: rgba(#FFC3C3, .65);
+    }
+    &.wash_card4{
+      background-color: rgba(#C8FFB4, .65);
     }
   }
 
