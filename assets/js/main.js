@@ -40,6 +40,7 @@ $(document).ready(function () {
       slidesToScroll: 1,
       infinite: true,
       autoplay: true,
+      dots: true,
       autoplaySpeed: 1000,
       responsive: [
         {
@@ -60,10 +61,19 @@ $(document).ready(function () {
         {
           breakpoint: 600,
           settings: {
-            slidesToShow: 1.4,
+            slidesToShow: 1,
           },
         },
       ],
     });
   }
+
+
+  if($(".img_slider_mobile").length){
+    $(".img_slider_mobile").slick({
+      arrows: true,
+
+    })
+  }
+
 });
