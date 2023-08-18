@@ -675,6 +675,7 @@ input[type="email"] {
   padding: 25px 0;
   position: sticky;
   bottom: 0;
+  z-index: 5;
   background-color: #fff;
   .counter_label {
     h5 {
@@ -792,6 +793,8 @@ input[type="email"] {
       p {
         font-family: monsb;
         font-size: 0.9rem;
+        direction: ltr;
+        // text-align: right;
       }
     }
     .card-img {
@@ -817,6 +820,8 @@ input[type="email"] {
     .price {
       span {
         font-family: monsm;
+        direction: ltr;
+        display: inline-block;
       }
     }
   }
@@ -1082,10 +1087,11 @@ input[type="email"] {
 @media (max-width: 600px) {
   .top_header {
     text-align: center;
+    padding: 15px 0;
   }
   .top_header .lang {
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
   }
   #modalcartproducts .modal-dialog .modal-content {
     padding: 30px;
@@ -1114,11 +1120,76 @@ input[type="email"] {
       }
     }
   }
+  .product_details_content{
+    padding-top: 30px;
+  }
   .product_details_content .big_imag {
     margin-right: 0;
   }
   .product_details_content .big_imag .card-img {
     height: 450px;
+  }
+  .product_counter{
+    padding: 15px 0;
+  }
+  .product_counter .counter_btn .btn{
+    padding: 12px;
+  }
+  .product_counter .counter_label p span{
+    width: 25px;
+    height: 25px;
+  }
+  .product_counter .counter_label p, .product_counter .counter_label h5{
+    font-size: .9rem;
+    margin-bottom: 5px;
+
+  }
+  .product_counter .counter_btn .btn{
+    margin-top: 5px;
+  }
+  #modalcartproducts .cart_list .cart_body h5{
+    width: 100%;
+  }
+  #modalcartproducts .warning_strip{
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .product_details_content .befun h5{
+    font-size: 1.4rem;
+    line-height: normal;
+  }
+  .product_details_content .product_wash ul{
+    display: block !important;
+    .wash_card{
+      width: 100%;
+    }
+  }
+  .product_details_content .product_video .card-img{
+    height: 350px;
+  }
+  .product_details_content .features ul{
+    justify-content: center;
+    li{
+      margin-bottom: 20px;
+      width: 50%;
+    }
+  }
+  .product_details_content .product_summery .whats_order a{
+    padding: 11px;
+  }
+  .thankyou_page .gray_box{
+    padding: 15px;
+  }
+  #modalcartproducts .cart_list li{
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    &:last-child{
+      border-bottom: 0;
+    }
+  }
+  #modalcartproducts .modal-dialog .modal-content{
+    padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
