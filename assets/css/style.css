@@ -159,7 +159,7 @@ input[type=email] {
 /* ================================================================ */
 .top_header {
   background-color: #000000;
-  padding: 45px 0;
+  padding: 20px 0;
 }
 .top_header .nice-select {
   float: none;
@@ -182,7 +182,9 @@ input[type=email] {
 
 /* ================================================================ */
 .product_details_content {
-  padding: 90px 0;
+  padding: 50px 0;
+  width: 90%;
+  margin: auto;
 }
 .product_details_content .images_slider {
   position: sticky;
@@ -205,15 +207,16 @@ input[type=email] {
   height: 679px;
 }
 .product_details_content .product_info_details h5 {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-family: monsm;
   line-height: 35px;
 }
 .product_details_content .order_form {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .product_details_content .order_form .sizes h6 {
-  margin-bottom: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
 }
 .product_details_content .order_form .sizes .form-group {
   display: inline-flex;
@@ -234,10 +237,11 @@ input[type=email] {
   color: #fff;
 }
 .product_details_content .order_form .colors {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .product_details_content .order_form .colors h6 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
 }
 .product_details_content .order_form .colors label {
   cursor: pointer;
@@ -267,7 +271,7 @@ input[type=email] {
   background-color: #ddd;
 }
 .product_details_content .order_form .peaces_number {
-  margin-top: 60px;
+  margin-top: 40px;
 }
 .product_details_content .order_form .peaces_number .peaces_number_input {
   width: -moz-fit-content;
@@ -279,7 +283,7 @@ input[type=email] {
   cursor: pointer;
 }
 .product_details_content .order_form .peaces_number input {
-  font-size: 2rem;
+  font-size: 1.4rem;
   width: 50px;
   font-family: monsm;
   border: 0;
@@ -289,8 +293,8 @@ input[type=email] {
 .product_details_content .order_form .box-style {
   background-color: #f0f1f1;
   border-radius: 5px;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -305,7 +309,9 @@ input[type=email] {
   text-align: center;
   padding: 19px 45px;
   margin-right: 15px;
-  height: 60px;
+  height: 40px;
+  display: flex;
+  align-items: center;
   color: #fff;
 }
 .product_details_content .order_form .btn_submit .btn:hover {
@@ -340,7 +346,7 @@ input[type=email] {
 }
 .product_details_content .product_form .form-control,
 .product_details_content .product_form .nice-select {
-  height: 75px;
+  height: 55px;
   background-color: #f6f8fa;
   border-radius: 5px;
   border: 1px solid #f6f8fa;
@@ -460,14 +466,15 @@ input[type=email] {
   background-color: rgba(102, 177, 253, 0.34);
   width: 330px;
   padding: 22px 18px;
-  min-height: 190px;
+  min-height: 130px;
   margin-bottom: 30px;
   margin-left: 30px;
 }
 .product_details_content .wash_card p {
   font-family: monsl;
   margin-top: 10px;
-  line-height: 30px;
+  line-height: 25px;
+  font-size: 0.9rem;
 }
 .product_details_content .wash_card.wash_card2 {
   background-color: rgba(255, 231, 190, 0.65);
@@ -479,8 +486,8 @@ input[type=email] {
   background-color: rgba(200, 255, 180, 0.65);
 }
 .product_details_content .befun h5 {
-  font-size: 2rem;
-  line-height: 50px;
+  font-size: 1.5rem;
+  line-height: 40px;
 }
 .product_details_content .related_products {
   margin-top: 120px;
@@ -492,11 +499,14 @@ input[type=email] {
   background-color: #f6f8fa;
   display: block;
   margin-bottom: 50px;
+  margin: 10px;
 }
 .product_details_content .related_card .card-img {
   width: 100%;
-  height: 285px;
+  height: 200px;
   border-radius: 10px;
+  display: block;
+  cursor: pointer;
 }
 .product_details_content .related_card .card-img img {
   border-radius: 10px;
@@ -535,7 +545,7 @@ input[type=email] {
 .product_details_content .product_summery .price {
   background-color: rgba(255, 231, 190, 0.65);
   border-radius: 5px;
-  padding: 21px;
+  padding: 15px;
 }
 .product_details_content .product_summery .price span {
   color: rgba(1, 0, 31, 0.7);
@@ -546,7 +556,7 @@ input[type=email] {
 }
 .product_details_content .product_summery .price h5 {
   text-align: right;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   direction: ltr;
   font-family: monss;
 }
@@ -595,12 +605,12 @@ input[type=email] {
   font-family: monsm;
 }
 .product_details_content .product_summery .whats_order {
-  margin-top: 70px;
+  margin-top: 30px;
 }
 .product_details_content .product_summery .whats_order a {
   background-color: #3ebf3e;
   border-radius: 5px;
-  padding: 21px;
+  padding: 10px;
   text-align: center;
   width: 100%;
   display: block;
@@ -618,7 +628,7 @@ input[type=email] {
 /* ================================================================ */
 .product_counter {
   box-shadow: 0 -18px 40px rgba(0, 0, 0, 0.17);
-  padding: 25px 0;
+  padding: 15px 0;
   position: sticky;
   bottom: 0;
   z-index: 5;
@@ -630,6 +640,7 @@ input[type=email] {
 }
 .product_counter .counter_label p {
   color: #000000;
+  margin-bottom: 0;
 }
 .product_counter .counter_label p span {
   background-color: #f0d1bc;
@@ -645,7 +656,7 @@ input[type=email] {
   width: 100%;
   background-color: #000000;
   color: #fff;
-  padding: 20px;
+  padding: 15px;
   border: 1px solid #000000;
 }
 .product_counter .counter_btn .btn:hover {
