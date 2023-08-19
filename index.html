@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./assets/css/all.min.css">
   <link rel="stylesheet" href="./assets/css/animate.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <link rel="stylesheet" href="./assets/css/slick.css">
   <link rel="stylesheet" href="./assets/css/slick-theme.css">
   <link rel="stylesheet" href="./assets/css/style.css">
@@ -284,9 +285,17 @@
                     </ul>
                     <div class="free_shipping">
                       <h6>الشحن مجاني</h6>
-                      <h5 class="date">
-                        الإثنين 15 أغسطس 2023
-                      </h5>
+
+                      <div class="from_to">
+                        <span>من</span>
+                        <span>الى</span>
+                      </div>
+
+                      <div class="shippingdates">
+                        <h5 class="date date1"></h5>
+                        <h5 class="date date2"></h5>
+                      </div>
+                      
                     </div>
                     <div class="whats_order">
                       <h5>للطلب عبر الواتساب</h5>
@@ -302,31 +311,33 @@
 
             <div class="product_form">
               <h5> :للطلب ، أدخل معلوماتك في الخانات أسفله</h5>
-              <form action="">
+              <form action="" id="datatForm">
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <input type="text" name="" placeholder="الاسم بالكامل" id="" class="form-control">
+                      <input type="text" name="name" placeholder="الاسم بالكامل" id="cname" class="form-control"
+                        required>
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <input type="text" name="" placeholder="المدينة" id="" class="form-control">
+                      <input type="text" name="city" placeholder="المدينة" id="ccity" class="form-control" required>
                     </div>
                   </div>
                   <div class="col-lg-12">
                     <div class="form-group">
-                      <input type="number" name="" placeholder="رقم الهاتف" id="" class="form-control">
+                      <input type="number" name="number" placeholder="رقم الهاتف" id="cnumber" class="form-control"
+                        required>
                     </div>
                   </div>
                   <div class="col-lg-12">
                     <div class="form-group">
-                      <input type="text" name="" placeholder="العنوان" id="" class="form-control">
+                      <input type="text" name="adress" placeholder="العنوان" id="cadress" class="form-control" required>
                     </div>
                   </div>
                   <div class="col-lg-12">
                     <div class="btn_submit">
-                      <button class="btn">أطلب الان</button>
+                      <button type="submit" class="btn">أطلب الان</button>
                     </div>
                   </div>
                 </div>
@@ -617,48 +628,23 @@
 
           <div class="cart_list">
             <ul class="list-unstyled">
-              <li class="d-flex align-items-center justify-content-between">
-                <div class="delete">
-                  <button><img src="./assets/images/delete.svg" alt=""></button>
-                </div>
-                <div class="name_picture d-flex align-items-center">
-                  <div class="card-img">
-                    <div class="img-parent">
-                      <img src="./assets/images/slider1.png" alt="">
-                    </div>
-                  </div>
-                  <div class="cart_body">
-                    <h5>قميص رجالي من الكتان بياقة كلاسيكية و ثلاثة أزرار</h5>
-                    <p>229 MAD</p>
-                  </div>
-                </div>
-                <div class="options peaces_options">
-                  <span class="box-style peaces_plus"><img src="./assets/images/plus.svg" alt=""></span>
-                  <input type="text" value="1">
-                  <span class="box-style peaces_minus"><img src="./assets/images/minus.svg" alt=""></span>
-                </div>
-                <div class="price">
-                  <span>687 MAD</span>
-                </div>
-              </li>
-
             </ul>
           </div>
         </div>
 
         <div class="moda_footer">
           <div class="summery">
-            <div class="sum_cont d-flex align-items-center justify-content-between">
+            <div class="sum_cont d-flex align-items-center justify-content-between first_price">
               <h5>المجموع الفرعي</h5>
-              <h6>1950 MAD</h6>
+              <h6></h6>
             </div>
             <div class="sum_cont d-flex align-items-center justify-content-between more_disscount">
               <h5>خصم اضافي</h5>
-              <h6>- 100 MAD</h6>
+              <h6></h6>
             </div>
             <div class="sum_cont d-flex align-items-center justify-content-between final_price">
               <h5>الإجمالي النهائي</h5>
-              <h6>1850 MAD</h6>
+              <h6></h6>
             </div>
           </div>
         </div>
@@ -681,6 +667,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
   <script src="./assets/js/slick.min.js"></script>
   <script src="./assets/js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <script src="./assets/js/saveData.js"></script>
 </body>
 

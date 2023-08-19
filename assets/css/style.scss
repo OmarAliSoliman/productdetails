@@ -384,6 +384,12 @@ input[type="email"] {
     }
     .form-group {
       margin-bottom: 30px;
+      .error{
+        font-size: .9rem;
+        color: red;
+        margin-top: 6px;
+        font-family: monsr;
+      }
     }
     .btn_submit {
       .btn {
@@ -697,6 +703,26 @@ input[type="email"] {
 
     .free_shipping {
       margin-top: 20px;
+      .from_to, .shippingdates{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      
+      .from_to{
+        span{
+          width: 50%;
+        }
+      }
+
+      .shippingdates{
+        h5{
+          font-size: .8rem;
+          width: 50%;
+          margin-top: 5px;
+        }
+      }
+
       h6 {
         color: #e30a17;
         font-size: rem;
@@ -1417,11 +1443,11 @@ input[type="email"] {
     }
   }
   .product_details_content .order_form .peaces_number {
-    flex-direction: column;
-    align-items: flex-start !important;
+    // flex-direction: column;
+    // align-items: flex-start !important;
     .btn {
-      margin-top: 20px;
-      margin-right: 0;
+      // margin-top: 20px;
+      // margin-right: 0;
     }
   }
 }

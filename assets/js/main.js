@@ -11,7 +11,7 @@ $(document).ready(function () {
   }
 
   if ($(".peaces_options").length) {
-    $(".peaces_options .peaces_plus").on("click", function (e) {
+    $("body").on("click", ".peaces_options .peaces_plus", function (e) {
       let count = parseInt($(this).parent().find("input").val());
       $(this)
         .parent()
@@ -19,7 +19,7 @@ $(document).ready(function () {
         .val(count + 1);
     });
 
-    $(".peaces_options .peaces_minus").on("click", function (e) {
+    $("body").on("click", ".peaces_options .peaces_minus", function (e) {
       let count = parseInt($(this).parent().find("input").val());
       if (count == 0) {
         count = 0;
@@ -68,12 +68,34 @@ $(document).ready(function () {
     });
   }
 
-
-  if($(".img_slider_mobile").length){
+  if ($(".img_slider_mobile").length) {
     $(".img_slider_mobile").slick({
       arrows: true,
-
-    })
+    });
   }
 
+  // date of shipping
+  // Get the current date
+  const options = {
+    year: "numeric",
+    month: "long", // Use "short" for abbreviated month names
+    day: "numeric",
+    weekday: "long", // Use "short" for abbreviated weekday names
+  };
+  
+  const currentDate = new Date();
+  const futureDate1 = new Date(currentDate);
+  futureDate1.setDate(currentDate.getDate() + 15);
+  const futureDate2 = new Date(currentDate);
+  futureDate2.setDate(currentDate.getDate() + 20);
+  
+  const arabicLocale = "ar"; // Arabic (Saudi Arabia) locale
+
+  $(".free_shipping .date1").text(futureDate1.toLocaleDateString(arabicLocale, options))
+  $(".free_shipping .date2").text(futureDate2.toLocaleDateString(arabicLocale, options))
+  
+  // console.log("Current Date:", currentDate.toLocaleDateString(arabicLocale, options));
+  // console.log("Date after 15 days:", futureDate1.toLocaleDateString(arabicLocale, options));
+  // console.log("Date after 20 days:", futureDate2.toLocaleDateString(arabicLocale, options));
+  
 });
