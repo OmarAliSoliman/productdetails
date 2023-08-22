@@ -266,14 +266,14 @@ const url = "https://dev.justyol.com/api/v3/google/sheets/create-order";
 $("#datatForm").on("submit", function (e) {
   var itesmli = $("#modalcartproducts li");
   e.preventDefault();
-  if (itesmli.length == 0) {
-    toastr.error("برجاء اضف  الى  السله اولا");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  } else if (color === "") {
+  if (color === "") {
     toastr.error("برجاء اختيار اللون اولا");
     window.scrollTo({ top: 0, behavior: "smooth" });
   } else if (size === "") {
     toastr.error("برجاء اختيار المقاس");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else if (itesmli.length == 0) {
+    toastr.error("برجاء اضف  الى  السله اولا");
     window.scrollTo({ top: 0, behavior: "smooth" });
   } else {
     sendDataToSheet();
@@ -283,14 +283,14 @@ $("#datatForm").on("submit", function (e) {
 $(".product_counter .counter_btn").on("click", function (e) {
   var itesmli = $("#modalcartproducts li");
   e.preventDefault();
-  if (itesmli.length == 0) {
-    toastr.error("برجاء اضف  الى  السله اولا");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  } else if (color === "") {
+  if (color === "") {
     toastr.error("برجاء اختيار اللون اولا");
     window.scrollTo({ top: 0, behavior: "smooth" });
   } else if (size === "") {
     toastr.error("برجاء اختيار المقاس");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else if (itesmli.length == 0) {
+    toastr.error("برجاء اضف  الى  السله اولا");
     window.scrollTo({ top: 0, behavior: "smooth" });
   } else {
     sendDataToSheet();
@@ -316,7 +316,7 @@ const sendDataToSheet = () => {
         $(".product_form .btn_submit .btn").removeAttr("disabled");
         toastr.clear();
         toastr.success("تم ارسال الطلب بنجاح");
-        // window.location.replace("product-thanks.html");
+        window.location.replace("product-thanks.html");
       })
       .catch((error) => {
         console.error("Error:", error);
