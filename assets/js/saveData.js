@@ -36,10 +36,11 @@ var customername = "";
 var city = "";
 var phone = "";
 var address = "";
+var allQuantity = 0;
 // console.log(path);
 
 var sendObject = {
-  total: total,
+  total: "",
   customer: {
     customer_name: customername,
     city: city,
@@ -64,16 +65,22 @@ $("body").on("click", "#modalcartproducts .options .peaces_plus", function () {
   var quan = parseInt($(this).parent().find("input")[0].value);
   var item = $(this).closest("li");
   updateQuantity(quan, item, "plus");
-  updateQuantityforItemApi(item, quan, "plus");
-  cheackQuantityTomakeTheDiscount();
+  updateQuantityforItemApi(allQuantity, item, "plus");
+  $(item).find(".peaces_options .peaces_minus").removeAttr("disabled");
 });
 
 $("body").on("click", "#modalcartproducts .options .peaces_minus", function () {
   var quan = parseInt($(this).parent().find("input")[0].value);
+  // console.log("quan",quan);
   var item = $(this).closest("li");
+
+  if (quan - 1 <= 1) {
+    $(item).find(".peaces_options .peaces_minus").attr("disabled", "disabled");
+  } else {
+    $(item).find(".peaces_options .peaces_minus").removeAttr("disabled");
+  }
   updateQuantity(quan, item, "minus");
-  updateQuantityforItemApi(item, quan, "minus");
-  
+  updateQuantityforItemApi(allQuantity, item, "minus");
 });
 
 // submit form
@@ -88,6 +95,7 @@ $(".peaces_number .btn_submit .btn").on("click", function (e) {
     toastr.error("برجاء اختيار المقاس");
     window.scrollTo({ top: 0, behavior: "smooth" });
   } else {
+    console.log(quantity);
     addToCart(quantity);
   }
 });
@@ -102,21 +110,28 @@ const updateQuantity = (quan, item, type) => {
     if (quan == 1) {
       $(item).find(".price span").text(`229MAD`);
     } else {
-      $(item).find(".price span").text(`${(quan - 1) * price}MAD`);
+      $(item)
+        .find(".price span")
+        .text(`${(quan - 1) * price}MAD`);
       updateTotal(price, "minus");
-      cheackQuantityTomakeTheDiscount();
     }
   }
 };
 
-const updateQuantityforItemApi = (item, quan, type) => {
+const updateQuantityforItemApi = (quan, item, type) => {
   var indexToUpadate = item.attr("data-index");
   if (type == "plus") {
     sendObject.items[indexToUpadate].quantity = quan + 1;
     quantity = quan + 1;
+    allQuantity = allQuantity + 1;
+    // console.log(allQuantity);
+    cheackQuantityTomakeTheDiscount();
   } else if (type == "minus") {
     sendObject.items[indexToUpadate].quantity = quan - 1;
     quantity = quan - 1;
+    allQuantity = allQuantity - 1;
+    // console.log(allQuantity);
+    cheackQuantityTomakeTheDiscount();
   }
   // console.log(sendObject);
 };
@@ -124,6 +139,7 @@ const updateQuantityforItemApi = (item, quan, type) => {
 const updateTotal = (totalpriceperItem, type) => {
   if (type == "plus") {
     total = parseInt(total + totalpriceperItem);
+    console.log(total);
     sendObject.total = total;
   } else if (type == "minus") {
     total = parseInt(total - totalpriceperItem);
@@ -136,6 +152,7 @@ $("body").on("click", "#modalcartproducts li .delete", function () {
   var item = $(this).closest("li");
   deleteCartItem(item);
 });
+
 const deleteCartItem = (item) => {
   const indexToRemove = item.attr("data-index");
   item.remove();
@@ -143,9 +160,11 @@ const deleteCartItem = (item) => {
   itemTotaltodelete = parseInt(item.find(".price span").text());
   updateTotal(itemTotaltodelete, "minus");
 
+  var delquan = item.find(".peaces_options input")[0].value;
+  allQuantity = allQuantity - parseInt(delquan);
+
   $("#modalcartproducts li").map((index, item) => {
     const itemIndex = $(item).attr("data-index");
-    // console.log(itemIndex);
     $(item).attr("data-index", index);
   });
 
@@ -159,6 +178,9 @@ const addToCart = (quantity) => {
   sendObject.items.push(obj);
   totalpriceperItem = quantity * price;
   updateTotal(totalpriceperItem, "plus");
+  console.log(totalpriceperItem);
+  allQuantity += quantity;
+  // console.log(allQuantity);
 
   var cartListItem = `<li class="d-flex align-items-center justify-content-between" data-index=${dataIndex}>
   <div class="delete">
@@ -176,9 +198,9 @@ const addToCart = (quantity) => {
     </div>
   </div>
   <div class="options peaces_options">
-    <span class="box-style peaces_plus"><img src="./assets/images/plus.svg" alt=""></span>
+    <button class="box-style peaces_plus"><img src="./assets/images/plus.svg" alt=""></button>
     <input type="text" value=${quantity}>
-    <span class="box-style peaces_minus"><img src="./assets/images/minus.svg" alt=""></span>
+    <button class="box-style peaces_minus"><img src="./assets/images/minus.svg" alt=""></button>
   </div>
   <div class="price">
     <span>${totalpriceperItem}MAD</span>
@@ -189,49 +211,49 @@ const addToCart = (quantity) => {
   dataIndex++;
   Swal.fire("تم الاضافه للسله بنجاح!", "", "success");
   document.querySelector(".swal2-actions .swal2-confirm").innerText = "اغلاق";
-
   cheackQuantityTomakeTheDiscount();
 };
 
 var finalTotal = 0;
 const cheackQuantityTomakeTheDiscount = () => {
-  var allQuantity = 0;
-  sendObject.items.map((item, index)=>{
-    allQuantity += item.quantity
-  })
-  // console.log(sendObject.items)
-  console.log("all quantity"+allQuantity)
+  // console.log("all quantity" + allQuantity)
 
-  if (allQuantity == 0){
-    $("#modalcartproducts .moda_footer .final_price h6").text(total)
+  if (allQuantity == 0) {
+    $("#modalcartproducts .moda_footer .final_price h6").text(total);
+    sendObject.total = total;
   }
 
-  if (allQuantity == 1){
+  if (allQuantity == 1) {
+    // console.log(allQuantity);
     $("#modalcartproducts .warning_strip").addClass("active_strip");
-    $("#modalcartproducts .warning_strip .number").text("1")
-    $("#modalcartproducts .warning_strip .discount").text("5")
+    $("#modalcartproducts .warning_strip .number").text("1");
+    $("#modalcartproducts .warning_strip .discount").text("5");
     $("#modalcartproducts .more_disscount").removeClass("active_discount");
 
-    $("#modalcartproducts .moda_footer .final_price h6").text(total)
+    $("#modalcartproducts .moda_footer .final_price h6").text(total);
+    sendObject.total = total;
   }
   if (allQuantity == 2) {
+    // console.log(allQuantity);
     $("#modalcartproducts .warning_strip").addClass("active_strip");
-    $("#modalcartproducts .warning_strip .number").text("1")
-    $("#modalcartproducts .warning_strip .discount").text("10")
+    $("#modalcartproducts .warning_strip .number").text("1");
+    $("#modalcartproducts .warning_strip .discount").text("10");
 
     $("#modalcartproducts .more_disscount").addClass("active_discount");
     $("#modalcartproducts .more_disscount span").text("5");
-    
-    finalTotal = total*(95/100);
-    $("#modalcartproducts .moda_footer .final_price h6").text(finalTotal)
 
+    finalTotal = parseInt(total * (95 / 100));
+    $("#modalcartproducts .moda_footer .final_price h6").text(finalTotal);
+    sendObject.total = finalTotal;
   } else if (allQuantity > 2) {
+    // console.log(allQuantity);
     $("#modalcartproducts .warning_strip").removeClass("active_strip");
     $("#modalcartproducts .more_disscount").addClass("active_discount");
     $("#modalcartproducts .more_disscount span").text("10");
 
-    finalTotal = total*(90/100);
+    finalTotal = parseInt(total * (90 / 100));
     $("#modalcartproducts .moda_footer .final_price h6").text(finalTotal);
+    sendObject.total = finalTotal;
   }
 };
 
@@ -242,8 +264,29 @@ $("#datatForm").validate();
 const url = "https://dev.justyol.com/api/v3/google/sheets/create-order";
 
 $("#datatForm").on("submit", function (e) {
+  var itesmli = $("#modalcartproducts li");
   e.preventDefault();
-  if (color === "") {
+  if (itesmli.length == 0) {
+    toastr.error("برجاء اضف  الى  السله اولا");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else if (color === "") {
+    toastr.error("برجاء اختيار اللون اولا");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else if (size === "") {
+    toastr.error("برجاء اختيار المقاس");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    sendDataToSheet();
+  }
+});
+
+$(".product_counter .counter_btn").on("click", function (e) {
+  var itesmli = $("#modalcartproducts li");
+  e.preventDefault();
+  if (itesmli.length == 0) {
+    toastr.error("برجاء اضف  الى  السله اولا");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else if (color === "") {
     toastr.error("برجاء اختيار اللون اولا");
     window.scrollTo({ top: 0, behavior: "smooth" });
   } else if (size === "") {
@@ -258,7 +301,7 @@ const sendDataToSheet = () => {
   $(".product_form .btn_submit .btn").attr("disabled", "true");
   // Validate the form
   if ($("#datatForm").valid()) {
-    // console.log(sendObject);
+    console.log(sendObject);
 
     fetch(url, {
       method: "POST",
@@ -273,7 +316,7 @@ const sendDataToSheet = () => {
         $(".product_form .btn_submit .btn").removeAttr("disabled");
         toastr.clear();
         toastr.success("تم ارسال الطلب بنجاح");
-        window.location.replace("product-thanks.html");
+        // window.location.replace("product-thanks.html");
       })
       .catch((error) => {
         console.error("Error:", error);

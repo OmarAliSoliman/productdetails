@@ -103,19 +103,22 @@ $(document).ready(function () {
   // console.log("Date after 20 days:", futureDate2.toLocaleDateString(arabicLocale, options));
 });
 
-var watchrandomNumber = Math.floor(Math.random() * 100) + 1;
-document.querySelector(".product_counter .counter_label p span").innerHTML =
-  watchrandomNumber;
+if ($(".watchrandomNumber").lenght) {
+  var watchrandomNumber = Math.floor(Math.random() * 100) + 1;
+  document.querySelector(".product_counter .counter_label p span").innerHTML =
+    watchrandomNumber;
+}
 
-  
-// Retrieve the previous number from localStorage, or set it to 9 initially
-var currentNumber = parseInt(localStorage.getItem("currentNumber")) || 9;
+if ($(".product_counter").lenght) {
+  // Retrieve the previous number from localStorage, or set it to 9 initially
+  var currentNumber = parseInt(localStorage.getItem("currentNumber")) || 9;
 
-// Display the current number
-// console.log(currentNumber);
+  // Display the current number
+  // console.log(currentNumber);
 
-// Calculate the next number and update localStorage
-var nextNumber = currentNumber > 1 ? currentNumber - 1 : 0;
-localStorage.setItem("currentNumber", nextNumber.toString());
-document.querySelector(".product_counter .counter_label h5 span").innerHTML =
-  nextNumber;
+  // Calculate the next number and update localStorage
+  var nextNumber = currentNumber > 1 ? currentNumber - 1 : 0;
+  localStorage.setItem("currentNumber", nextNumber.toString());
+  document.querySelector(".product_counter .counter_label h5 span").innerHTML =
+    nextNumber;
+}
