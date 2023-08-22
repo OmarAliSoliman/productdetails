@@ -21,8 +21,8 @@ $(document).ready(function () {
 
     $("body").on("click", ".peaces_options .peaces_minus", function (e) {
       let count = parseInt($(this).parent().find("input").val());
-      if (count == 0) {
-        count = 0;
+      if (count == 1) {
+        count = 1;
       } else {
         $(this)
           .parent()
@@ -82,20 +82,40 @@ $(document).ready(function () {
     day: "numeric",
     weekday: "long", // Use "short" for abbreviated weekday names
   };
-  
+
   const currentDate = new Date();
   const futureDate1 = new Date(currentDate);
   futureDate1.setDate(currentDate.getDate() + 15);
   const futureDate2 = new Date(currentDate);
   futureDate2.setDate(currentDate.getDate() + 20);
-  
+
   const arabicLocale = "ar"; // Arabic (Saudi Arabia) locale
 
-  $(".free_shipping .date1").text(futureDate1.toLocaleDateString(arabicLocale, options))
-  $(".free_shipping .date2").text(futureDate2.toLocaleDateString(arabicLocale, options))
-  
+  $(".free_shipping .date1").text(
+    futureDate1.toLocaleDateString(arabicLocale, options)
+  );
+  $(".free_shipping .date2").text(
+    futureDate2.toLocaleDateString(arabicLocale, options)
+  );
+
   // console.log("Current Date:", currentDate.toLocaleDateString(arabicLocale, options));
   // console.log("Date after 15 days:", futureDate1.toLocaleDateString(arabicLocale, options));
   // console.log("Date after 20 days:", futureDate2.toLocaleDateString(arabicLocale, options));
-  
 });
+
+var watchrandomNumber = Math.floor(Math.random() * 100) + 1;
+document.querySelector(".product_counter .counter_label p span").innerHTML =
+  watchrandomNumber;
+
+  
+// Retrieve the previous number from localStorage, or set it to 9 initially
+var currentNumber = parseInt(localStorage.getItem("currentNumber")) || 9;
+
+// Display the current number
+// console.log(currentNumber);
+
+// Calculate the next number and update localStorage
+var nextNumber = currentNumber > 1 ? currentNumber - 1 : 0;
+localStorage.setItem("currentNumber", nextNumber.toString());
+document.querySelector(".product_counter .counter_label h5 span").innerHTML =
+  nextNumber;

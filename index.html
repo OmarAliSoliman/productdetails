@@ -22,20 +22,17 @@
   <div class="top_header">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-12">
+        <div class="col-lg-10">
           <div class="logo">
             <a href=""><img src="./assets/images/logo.svg" alt=""></a>
           </div>
         </div>
-        <!-- <div class="col-lg-6">
-          <div class="lang d-flex align-items-center">
-            <select name="" class="custom_select" id="">
-              <option value="En">En</option>
-              <option value="Ar">Ar</option>
-            </select>
-            <span dir="ltr">Language:</span>
-          </div>
-        </div> -->
+        <div class="col-lg-2">
+          <button class="btn lang d-flex align-items-center" type="button" data-bs-toggle="modal"
+          data-bs-target="#modalcartproducts">
+            <i class="fas fa-store-alt"></i>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -251,8 +248,7 @@
                         </ul>
 
                         <div class="btn_submit">
-                          <button class="btn" type="button" data-bs-toggle="modal"
-                            data-bs-target="#modalcartproducts">أضف للسلة</button>
+                          <button class="btn" >أضف للسلة</button>
                         </div>
 
                       </div>
@@ -295,7 +291,7 @@
                         <h5 class="date date1"></h5>
                         <h5 class="date date2"></h5>
                       </div>
-                      
+
                     </div>
                     <div class="whats_order">
                       <h5>للطلب عبر الواتساب</h5>
@@ -592,7 +588,7 @@
       <div class="row align-items-center">
         <div class="col-lg-4 col-xl-3">
           <div class="counter_label">
-            <h5>سارع 7 قطع فقط متبقية في المخزن</h5>
+            <h5>سارع <span>7</span> قطع فقط متبقية في المخزن</h5>
             <p>يشاهده <span>9</span> متصفح في الوقت الحالي</p>
           </div>
         </div>
@@ -623,7 +619,7 @@
 
         <div class="modal-body">
           <div class="warning_strip">
-            <p>قم بإضافة عدد 1 منتج واحصل على خصم بقيمة 5 %</p>
+            <p>قم بإضافة عدد <span class="number">1</span> منتج واحصل على خصم بقيمة <span class="discount">5</span> %</p>
           </div>
 
           <div class="cart_list">
@@ -639,7 +635,7 @@
               <h6></h6>
             </div>
             <div class="sum_cont d-flex align-items-center justify-content-between more_disscount">
-              <h5>خصم اضافي</h5>
+              <h5>خصم اضافي <span></span>%</h5>
               <h6></h6>
             </div>
             <div class="sum_cont d-flex align-items-center justify-content-between final_price">
@@ -649,9 +645,9 @@
           </div>
         </div>
 
-        <div class="btn_submit">
+        <!-- <div class="btn_submit">
           <button type="submit">تأكيد الطلب</button>
-        </div>
+        </div> -->
 
       </div>
     </div>
@@ -670,6 +666,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./assets/js/saveData.js"></script>
 </body>
 

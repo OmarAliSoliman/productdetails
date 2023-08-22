@@ -1,25 +1,25 @@
 // inputs
 $(".product_form #cname").on("keyup", function (e) {
   customername = e.target.value;
-  console.log(customername);
+  // console.log(customername);
   sendObject.customer.customer_name = customername;
 });
 
 $(".product_form #ccity").on("keyup", function (e) {
   city = e.target.value;
-  console.log(city);
+  // console.log(city);
   sendObject.customer.city = city;
 });
 
 $(".product_form #cnumber").on("keyup", function (e) {
   phone = e.target.value;
-  console.log(phone);
+  // console.log(phone);
   sendObject.customer.phone = phone;
 });
 
 $(".product_form #cadress").on("keyup", function (e) {
   address = e.target.value;
-  console.log(address);
+  // console.log(address);
   sendObject.customer.address = address;
 });
 
@@ -36,7 +36,7 @@ var customername = "";
 var city = "";
 var phone = "";
 var address = "";
-console.log(path);
+// console.log(path);
 
 var sendObject = {
   total: total,
@@ -65,6 +65,7 @@ $("body").on("click", "#modalcartproducts .options .peaces_plus", function () {
   var item = $(this).closest("li");
   updateQuantity(quan, item, "plus");
   updateQuantityforItemApi(item, quan, "plus");
+  cheackQuantityTomakeTheDiscount();
 });
 
 $("body").on("click", "#modalcartproducts .options .peaces_minus", function () {
@@ -72,13 +73,23 @@ $("body").on("click", "#modalcartproducts .options .peaces_minus", function () {
   var item = $(this).closest("li");
   updateQuantity(quan, item, "minus");
   updateQuantityforItemApi(item, quan, "minus");
+  
 });
 
 // submit form
 $(".peaces_number .btn_submit .btn").on("click", function (e) {
   e.preventDefault();
   quantity = parseInt($(this).parent().parent().find("input")[0].value);
-  addToCart(quantity);
+  // console.log(color, size);
+  if (color === "") {
+    toastr.error("برجاء اختيار اللون اولا");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else if (size === "") {
+    toastr.error("برجاء اختيار المقاس");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    addToCart(quantity);
+  }
 });
 
 const updateQuantity = (quan, item, type) => {
@@ -88,13 +99,12 @@ const updateQuantity = (quan, item, type) => {
       .text(`${(quan + 1) * price}MAD`);
     updateTotal(price, "plus");
   } else if (type == "minus") {
-    if (quan == 0) {
-      $(item).find(".price span").text(`0MAD`);
+    if (quan == 1) {
+      $(item).find(".price span").text(`229MAD`);
     } else {
-      $(item)
-        .find(".price span")
-        .text(`${(quan - 1) * price}MAD`);
+      $(item).find(".price span").text(`${(quan - 1) * price}MAD`);
       updateTotal(price, "minus");
+      cheackQuantityTomakeTheDiscount();
     }
   }
 };
@@ -103,10 +113,12 @@ const updateQuantityforItemApi = (item, quan, type) => {
   var indexToUpadate = item.attr("data-index");
   if (type == "plus") {
     sendObject.items[indexToUpadate].quantity = quan + 1;
+    quantity = quan + 1;
   } else if (type == "minus") {
     sendObject.items[indexToUpadate].quantity = quan - 1;
+    quantity = quan - 1;
   }
-  console.log(sendObject);
+  // console.log(sendObject);
 };
 
 const updateTotal = (totalpriceperItem, type) => {
@@ -128,7 +140,19 @@ const deleteCartItem = (item) => {
   const indexToRemove = item.attr("data-index");
   item.remove();
   sendObject.items.splice(indexToRemove, 1);
+  itemTotaltodelete = parseInt(item.find(".price span").text());
+  updateTotal(itemTotaltodelete, "minus");
+
+  $("#modalcartproducts li").map((index, item) => {
+    const itemIndex = $(item).attr("data-index");
+    // console.log(itemIndex);
+    $(item).attr("data-index", index);
+  });
+
+  cheackQuantityTomakeTheDiscount();
 };
+
+// document.querySelector(".swal2-actions .swal2-confirm").innerText = "اغلاق"
 
 const addToCart = (quantity) => {
   var obj = { size: size, color: color, quantity: quantity };
@@ -163,6 +187,52 @@ const addToCart = (quantity) => {
 
   $("#modalcartproducts ul").append(cartListItem);
   dataIndex++;
+  Swal.fire("تم الاضافه للسله بنجاح!", "", "success");
+  document.querySelector(".swal2-actions .swal2-confirm").innerText = "اغلاق";
+
+  cheackQuantityTomakeTheDiscount();
+};
+
+var finalTotal = 0;
+const cheackQuantityTomakeTheDiscount = () => {
+  var allQuantity = 0;
+  sendObject.items.map((item, index)=>{
+    allQuantity += item.quantity
+  })
+  // console.log(sendObject.items)
+  console.log("all quantity"+allQuantity)
+
+  if (allQuantity == 0){
+    $("#modalcartproducts .moda_footer .final_price h6").text(total)
+  }
+
+  if (allQuantity == 1){
+    $("#modalcartproducts .warning_strip").addClass("active_strip");
+    $("#modalcartproducts .warning_strip .number").text("1")
+    $("#modalcartproducts .warning_strip .discount").text("5")
+    $("#modalcartproducts .more_disscount").removeClass("active_discount");
+
+    $("#modalcartproducts .moda_footer .final_price h6").text(total)
+  }
+  if (allQuantity == 2) {
+    $("#modalcartproducts .warning_strip").addClass("active_strip");
+    $("#modalcartproducts .warning_strip .number").text("1")
+    $("#modalcartproducts .warning_strip .discount").text("10")
+
+    $("#modalcartproducts .more_disscount").addClass("active_discount");
+    $("#modalcartproducts .more_disscount span").text("5");
+    
+    finalTotal = total*(95/100);
+    $("#modalcartproducts .moda_footer .final_price h6").text(finalTotal)
+
+  } else if (allQuantity > 2) {
+    $("#modalcartproducts .warning_strip").removeClass("active_strip");
+    $("#modalcartproducts .more_disscount").addClass("active_discount");
+    $("#modalcartproducts .more_disscount span").text("10");
+
+    finalTotal = total*(90/100);
+    $("#modalcartproducts .moda_footer .final_price h6").text(finalTotal);
+  }
 };
 
 // validate form
@@ -173,11 +243,22 @@ const url = "https://dev.justyol.com/api/v3/google/sheets/create-order";
 
 $("#datatForm").on("submit", function (e) {
   e.preventDefault();
+  if (color === "") {
+    toastr.error("برجاء اختيار اللون اولا");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else if (size === "") {
+    toastr.error("برجاء اختيار المقاس");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    sendDataToSheet();
+  }
+});
+
+const sendDataToSheet = () => {
   $(".product_form .btn_submit .btn").attr("disabled", "true");
   // Validate the form
   if ($("#datatForm").valid()) {
-
-    console.log(sendObject);
+    // console.log(sendObject);
 
     fetch(url, {
       method: "POST",
@@ -188,10 +269,11 @@ $("#datatForm").on("submit", function (e) {
       body: JSON.stringify(sendObject),
     })
       .then((responseData) => {
-        console.log("Response:", responseData);
+        // console.log("Response:", responseData);
         $(".product_form .btn_submit .btn").removeAttr("disabled");
         toastr.clear();
         toastr.success("تم ارسال الطلب بنجاح");
+        window.location.replace("product-thanks.html");
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -205,5 +287,4 @@ $("#datatForm").on("submit", function (e) {
     toastr.clear();
     toastr.error("برجاء ملئ البيانات");
   }
-});
-
+};
