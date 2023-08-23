@@ -209,7 +209,7 @@ const addToCart = (quantity) => {
 
   $("#modalcartproducts ul").append(cartListItem);
   dataIndex++;
-  Swal.fire("تم الاضافه للسله بنجاح!", "", "success");
+  sweetAlert("تم الاضافه للسله بنجاح!", "", "success");
   document.querySelector(".swal2-actions .swal2-confirm").innerText = "اغلاق";
   cheackQuantityTomakeTheDiscount();
 };
