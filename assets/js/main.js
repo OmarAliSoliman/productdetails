@@ -103,13 +103,13 @@ $(document).ready(function () {
   // console.log("Date after 20 days:", futureDate2.toLocaleDateString(arabicLocale, options));
 });
 
-if ($(".watchrandomNumber").lenght) {
+if ($(".product_counter").length) {
   var watchrandomNumber = Math.floor(Math.random() * 100) + 1;
   document.querySelector(".product_counter .counter_label p span").innerHTML =
     watchrandomNumber;
 }
 
-if ($(".product_counter").lenght) {
+if ($(".product_counter").length) {
   // Retrieve the previous number from localStorage, or set it to 9 initially
   var currentNumber = parseInt(localStorage.getItem("currentNumber")) || 9;
 
